@@ -2,6 +2,12 @@
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
+### Playground
+- Login system
+- global context with `Root.js`
+
+### Examples
+![dd](/images/info1.png)
 ### Installation
 
 ```
