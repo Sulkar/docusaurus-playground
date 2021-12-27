@@ -8,6 +8,7 @@ import HomepageFeatures from "../components/HomepageFeatures";
 import Session from "../components/Session";
 import TestContext from "../components/TestContext";
 import { MyContext } from "../components/MyContext";
+import CodeSearch from "../components/CodeSearch";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -22,8 +23,11 @@ function HomepageHeader() {
           <div className="col col--4"></div>
           <div className="col col--4">
             <Session />
+            
           </div>
-          <div className="col col--4"></div>
+          <div className="col col--4">
+            <CodeSearch />
+          </div>
         </div>
       </div>
     </header>
