@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import axios from "axios";
-import Login from "./Login";
-import Logout from "./Logout";
 import { MyContext } from "./MyContext";
 
 export default function Session() {
@@ -10,15 +8,15 @@ export default function Session() {
 
   React.useEffect(() => {
     axios.get(urlSession).then((response) => {
-      if (response.data == 1) {
-        setMyValues((oldValues) => ({ ...oldValues, loggedIn: true }));
+      if (response.data.loggedin == 1) {
+        setMyValues((oldValues) => ({
+          ...oldValues,
+          loggedIn: true,
+          database_folder: response.data.database_folder,
+        }));
       }
     });
   }, []);
 
-  return (
-    <div>
-      <div>{myValues.loggedIn ? <Logout /> : <Login />}</div>
-    </div>
-  );
+  return <></>;
 }

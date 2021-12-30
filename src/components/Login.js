@@ -5,7 +5,6 @@ import Alert from "./Alert";
 
 export default function Login() {
   const [myValues, setMyValues] = useContext(MyContext);
-  const urlSession = "https://test.sqlverine.org/php/session.php";
   const urlLogin = "https://test.sqlverine.org/php/login.php";
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -19,23 +18,22 @@ export default function Login() {
         password: password,
       })
       .then(function (response) {
-        if (response.data == 1) {
-          setMyValues((oldValues) => ({ ...oldValues, loggedIn: true }));
-        }else{
-          setAlert(<Alert alert="Benutzername oder Password sind nicht korrekt!" />);          
+        if (response.data.loggedin == 1) {
+          setMyValues((oldValues) => ({
+            ...oldValues,
+            loggedIn: true,
+            database_folder: response.data.database_folder,
+          }));
+        } else {
+          setAlert(
+            <Alert alert="Benutzername oder Password sind nicht korrekt!" />
+          );
         }
       })
       .catch(function (error) {
         console.log(error);
         setAlert(<Alert alert={error.toString()} />);
       });
-  }
-
-  // check Session
-  async function handleSession(event) {
-    axios.get(urlSession).then((response) => {
-      console.log(response.data);
-    });
   }
 
   return (
@@ -64,16 +62,11 @@ export default function Login() {
           />
         </div>
       </div>
-      <div>
-        {alert}
-      </div>
+      <div>{alert}</div>
       <div className="row">
         <div className="col">
           <button className="button button--success" onClick={handleLogin}>
             Login
-          </button>
-          <button className="button button--info  margin-left--xs" onClick={handleSession}>
-            Session
           </button>
         </div>
       </div>

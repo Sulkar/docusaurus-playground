@@ -6,6 +6,7 @@ function MyContextProvider(props) {
   const [myValues, setMyValues] = useState({
     counter: 0,
     user: "Richi",
+    database_folder: "",
     loggedIn: false,
   });
 

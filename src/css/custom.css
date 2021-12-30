@@ -45,6 +45,6 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   position: absolute;
   color: black;
   right: 40px;
-  top : 4px;
+  top : -2px;
   cursor: pointer;
 }
