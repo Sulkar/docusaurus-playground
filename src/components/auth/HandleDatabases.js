@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import DatabaseItem from "./DatabaseItem";
 import DatabaseUpload from "./DatabaseUpload";
-import { MyContext } from "./MyContext";
+import { MyContext } from "../MyContext";
 
 export default function HandleDatabases() {
   const [myValues, setMyValues] = useContext(MyContext);
@@ -26,9 +26,9 @@ export default function HandleDatabases() {
 
   React.useEffect(() => {
     getDatabases();
-    console.log("database")
-    console.log(myValues.loggedIn)
-    console.log(myValues.database_folder)
+    console.log("database");
+    console.log(myValues.loggedIn);
+    console.log(myValues.database_folder);
   }, [myValues.loggedIn]);
 
   return (
@@ -36,8 +36,9 @@ export default function HandleDatabases() {
       {myValues.loggedIn ? (
         <div>
           <DatabaseUpload getDatabases={getDatabases} />
-          <h3>Datenbanken</h3>
-          <div>
+
+          <div className="mt-3">
+            <h3>Datenbanken</h3>
             <ul className="list-group">
               {databases.map((database) => (
                 <DatabaseItem

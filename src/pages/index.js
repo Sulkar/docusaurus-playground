@@ -7,8 +7,7 @@ import HomepageFeatures from "../components/HomepageFeatures";
 import TestContext from "../components/TestContext";
 import { MyContext } from "../components/MyContext";
 import CodeSearch from "../components/CodeSearch";
-import Login from "../components/Login";
-import Logout from "../components/Logout";
+
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -23,9 +22,7 @@ function HomepageHeader() {
         </p>
         <div className="row">
           <div className="col col--4"></div>
-          <div className="col col--4">
-            <div>{myValues.loggedIn ? <Logout /> : <Login />}</div>
-          </div>
+          <div className="col col--4"></div>
           <div className="col col--4">
             <CodeSearch />
           </div>

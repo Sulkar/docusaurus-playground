@@ -66,7 +66,7 @@ const config = {
             position: 'left',
             items: [
               
-              { to: "/file_upload", label: "File Upload" },
+              { to: "/testPage", label: "Test Page" },
 
             ],
           },

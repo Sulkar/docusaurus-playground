@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios";
-import { MyContext } from "./MyContext";
+import { MyContext } from "../MyContext";
 
 export default function Logout() {
   const urlLogout = "https://test.sqlverine.org/php/logout.php";
@@ -13,5 +13,5 @@ export default function Logout() {
     });
   }
 
-  return <button class="button button--danger" onClick={() => handleLogout()}>Logout</button>;
+  return <button class="button button--danger mt-3 mb-1" onClick={() => handleLogout()}>Logout</button>;
 }

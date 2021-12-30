@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import { MyContext } from "./MyContext";
+import { MyContext } from "../MyContext";
 
 
 export default function DatabaseUpload(props) {
@@ -42,8 +42,8 @@ export default function DatabaseUpload(props) {
           onChange={handleFileChange}
         />
       </div>
-      <div className="col-md-6">
-        <button type="button" className="btn btn-primary" onClick={handleFileUpload}>Upload!</button>
+      <div className="col-md-6 mt-1">
+        <button type="button" className="btn btn-primary" onClick={handleFileUpload}>Upload</button>
       </div>
     </div>
   );

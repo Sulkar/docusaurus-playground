@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { MyContext } from "./MyContext";
+import { MyContext } from "../MyContext";
 import axios from "axios";
-import Alert from "./Alert";
+import Alert from "../Alert";
 
 export default function Login() {
   const [myValues, setMyValues] = useContext(MyContext);
@@ -39,6 +39,11 @@ export default function Login() {
   return (
     <div>
       <div className="row">
+        <div className="col text-center">
+         <h2>Anmelden</h2>
+        </div>
+      </div>
+      <div className="row">
         <div className="col">
           <p>Benutzername:</p>
         </div>
@@ -64,8 +69,8 @@ export default function Login() {
       </div>
       <div>{alert}</div>
       <div className="row">
-        <div className="col">
-          <button className="button button--success" onClick={handleLogin}>
+        <div className="col text-center">
+          <button className="button button--success mt-3 mb-1" onClick={handleLogin}>
             Login
           </button>
         </div>

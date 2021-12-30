@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import axios from "axios";
-import { MyContext } from "./MyContext";
+import { MyContext } from "../MyContext";
 
 export default function Session() {
   const [myValues, setMyValues] = useContext(MyContext);

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
-import { MyContext } from "./MyContext";
+import { MyContext } from "../MyContext";
 
 export default function DatabaseItem(props) {
   const [myValues, setMyValues] = useContext(MyContext);
