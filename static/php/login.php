@@ -13,7 +13,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $username = $data["name"];
 $password = $data["password"];
 
-$sql = "SELECT id, username, password, database_folder FROM users WHERE username = :username";
+$sql = "SELECT id, username, password, codes, db_count FROM users WHERE username = :username";
 
 $results = array();
 $results['loggedin'] = 0;
@@ -30,8 +30,6 @@ if($stmt = $pdo->prepare($sql)){
                 if($stmt->rowCount() == 1){
 					
                     if($row = $stmt->fetch()){
-                        $id = $row["id"];
-                        $username = $row["username"];
                         $hashed_password = $row["password"];
 
                         if(password_verify($password, $hashed_password)) {
@@ -39,11 +37,14 @@ if($stmt = $pdo->prepare($sql)){
 							$results['loggedin'] = 1;
 							$results['id'] = $row['id'];
 							$results['username'] = $row['username'];
-							$results['database_folder'] = $row["database_folder"];						
+							$results['codes'] = $row["codes"];	
+							$results['db_count'] = $row["db_count"];							
    
                             $_SESSION["loggedin"] = $results['loggedin'];
 							$_SESSION["username"] = $results['username'];
-							$_SESSION['database_folder'] = $results['database_folder'];
+							$_SESSION['codes'] = $results['codes'];
+							$_SESSION['id'] = $results['id'];
+							$_SESSION['db_count'] = $results['db_count'];
                                                               
                         } else{
                             // Password is not valid, display a generic error message

@@ -10,11 +10,15 @@ export default function profil() {
   return (
     <Layout>
       <main>
-        {myValues.loggedIn ? (
+        {myValues.loggedin ? (
           <div className="container">
             <div className="row mt-5">
               <div className="col">
-                <h2>Hallo {myValues.user}</h2>
+                <h2>Hallo {myValues.username}</h2>
+                <ul>
+                  <li>Maximale Anzahl von Datenbanken: {myValues.db_count}</li>
+                  <li>Mögliche Codes: {myValues.codes.toString()}</li>
+                </ul>
               </div>
             </div>
             <div className="row">
@@ -33,7 +37,7 @@ export default function profil() {
             <div className="row mt-5">
               <div className="col col--4"></div>
               <div className="col col--4 text-center">
-                <div>{myValues.loggedIn ? <></> : <Login />}</div>
+                <div>{myValues.loggedin ? <></> : <Login />}</div>
               </div>
               <div className="col col--4"></div>
             </div>

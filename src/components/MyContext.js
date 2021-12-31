@@ -5,9 +5,11 @@ const MyContext = React.createContext({});
 function MyContextProvider(props) {
   const [myValues, setMyValues] = useState({
     counter: 0,
-    user: "Richi",
+    username: "",
     database_folder: "",
-    loggedIn: false,
+    db_count: 0,
+    codes: [],
+    loggedin: false,
   });
 
   return (

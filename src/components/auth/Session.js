@@ -11,8 +11,11 @@ export default function Session() {
       if (response.data.loggedin == 1) {
         setMyValues((oldValues) => ({
           ...oldValues,
-          loggedIn: true,
-          database_folder: response.data.database_folder,
+          loggedin: true,
+          username: response.data.username,
+          db_count: response.data.db_count,
+          codes: response.data.codes.split(","),
+          database_folder: response.data.id,
         }));
       }
     });

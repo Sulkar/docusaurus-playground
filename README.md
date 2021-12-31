@@ -1,13 +1,24 @@
 # Website
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repo is a playground/sandbox for react and docusaurus tests. Ater testing some systems will be migrated to the [SQLverine website](https://github.com/Sulkar/SQLverine-website).
 
 ### Playground
-- Login system
+- login system with php sessions
+- profile area with file upload
+- code system for file (database) access
+- custom header plugin for bootstrap.css integration
 - global context with `Root.js`
 
 ### Examples
-![dd](/images/info1.png)
+![Login](/images/info1.png)
+
+![File Upload](/images/info2.png)
+
+### Dependencies
+
+- axios
+- react-bootstrap
+
 ### Installation
 
 ```
@@ -30,18 +41,5 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
 
-Using SSH:
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

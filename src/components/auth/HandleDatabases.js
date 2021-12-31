@@ -7,16 +7,18 @@ import { MyContext } from "../MyContext";
 export default function HandleDatabases() {
   const [myValues, setMyValues] = useContext(MyContext);
   const [databases, setDatabases] = useState([]);
+  const [databasesCodes, setDatabasesCodes] = useState({});
   const urlFileUpload = "https://test.sqlverine.org/php/get_files.php";
 
   async function getDatabases() {
-    if (myValues.loggedIn) {
+    if (myValues.loggedin) {
       axios
         .post(urlFileUpload, {
           database_folder: myValues.database_folder,
         })
         .then(function (response) {
-          setDatabases(Object.values(response.data));
+          setDatabases(Object.values(response.data.files));
+          setDatabasesCodes(response.data.codes);
         })
         .catch(function (error) {
           console.log(error);
@@ -26,14 +28,11 @@ export default function HandleDatabases() {
 
   React.useEffect(() => {
     getDatabases();
-    console.log("database");
-    console.log(myValues.loggedIn);
-    console.log(myValues.database_folder);
-  }, [myValues.loggedIn]);
+  }, [myValues.loggedin]);
 
   return (
     <div>
-      {myValues.loggedIn ? (
+      {myValues.loggedin ? (
         <div>
           <DatabaseUpload getDatabases={getDatabases} />
 
@@ -43,6 +42,7 @@ export default function HandleDatabases() {
               {databases.map((database) => (
                 <DatabaseItem
                   name={database}
+                  code={databasesCodes[database]}
                   getDatabases={getDatabases}
                   key={database}
                 />

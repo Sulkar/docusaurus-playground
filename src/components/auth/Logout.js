@@ -9,7 +9,7 @@ export default function Logout() {
   // Login
   async function handleLogout(event) {
     axios.get(urlLogout).then((response) => {
-      setMyValues((oldValues) => ({ ...oldValues, loggedIn: false }));
+      setMyValues((oldValues) => ({ ...oldValues, loggedin: false }));
     });
   }
 

@@ -6,7 +6,6 @@ import { MyContext } from "../MyContext";
 
 export default function DatabaseItem(props) {
   const [myValues, setMyValues] = useContext(MyContext);
-  const [database, setDatabase] = useState(props);
   const urlFileUpload = "https://test.sqlverine.org/php/delete_file.php";
 
   async function handleRemove(name) {
@@ -33,9 +32,17 @@ export default function DatabaseItem(props) {
     <>
       <li
         className="list-group-item d-flex justify-content-between align-items-center"
-        key={database.name}
+        key={props.name}
       >
-        {database.name}
+        {props.name}
+        <span>
+          <select class="form-select" aria-label="Default select example">
+            <option >Codes</option>
+            {myValues.codes.map((code) => (
+              <option selected={props.code === code} value={code}>{code}</option>
+            ))}
+          </select>
+        </span>
 
         <span
           className=""
@@ -64,13 +71,13 @@ export default function DatabaseItem(props) {
           <Modal.Title>Datenbank löschen</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Wollen Sie wirklich die Datenbank: {database.name} löschen?
+          Wollen Sie wirklich die Datenbank: {props.name} löschen?
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             abbrechen
           </Button>
-          <Button variant="danger" onClick={() => handleRemove(database.name)}>
+          <Button variant="danger" onClick={() => handleRemove(props.name)}>
             löschen
           </Button>
         </Modal.Footer>

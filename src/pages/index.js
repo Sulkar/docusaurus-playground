@@ -18,7 +18,7 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">
-          Dinosaurs {myValues.loggedIn ? " and " + myValues.user : ""} are cool
+          Dinosaurs {myValues.loggedin ? " and " + myValues.username : ""} are cool
         </p>
         <div className="row">
           <div className="col col--4"></div>
