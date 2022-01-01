@@ -7,7 +7,7 @@ import HomepageFeatures from "../components/HomepageFeatures";
 import TestContext from "../components/TestContext";
 import { MyContext } from "../components/MyContext";
 import CodeSearch from "../components/CodeSearch";
-
+import Loader from "../components/Loader";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -25,6 +25,7 @@ function HomepageHeader() {
           <div className="col col--4"></div>
           <div className="col col--4">
             <CodeSearch />
+            {myValues.loader ? <Loader /> : <></>}
           </div>
         </div>
       </div>

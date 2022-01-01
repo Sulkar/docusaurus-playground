@@ -3,6 +3,7 @@ import axios from "axios";
 import DatabaseItem from "./DatabaseItem";
 import DatabaseUpload from "./DatabaseUpload";
 import { MyContext } from "../MyContext";
+import Loader from "../Loader";
 
 export default function HandleDatabases() {
   const [myValues, setMyValues] = useContext(MyContext);
@@ -11,6 +12,7 @@ export default function HandleDatabases() {
   const urlFileUpload = "https://test.sqlverine.org/php/get_files.php";
 
   async function getDatabases() {
+    setMyValues(oldValues => ({...oldValues, loader:true }));
     if (myValues.loggedin) {
       axios
         .post(urlFileUpload, {
@@ -19,6 +21,7 @@ export default function HandleDatabases() {
         .then(function (response) {
           setDatabases(Object.values(response.data.files));
           setDatabasesCodes(response.data.codes);
+          setMyValues(oldValues => ({...oldValues, loader:false }));
         })
         .catch(function (error) {
           console.log(error);
@@ -38,6 +41,7 @@ export default function HandleDatabases() {
 
           <div className="mt-3">
             <h3>Datenbanken</h3>
+            {myValues.loader ? <Loader /> : <></>}
             <ul className="list-group">
               {databases.map((database) => (
                 <DatabaseItem

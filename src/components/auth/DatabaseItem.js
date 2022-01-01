@@ -6,14 +6,32 @@ import { MyContext } from "../MyContext";
 
 export default function DatabaseItem(props) {
   const [myValues, setMyValues] = useContext(MyContext);
-  const urlFileUpload = "https://test.sqlverine.org/php/delete_file.php";
+  const urlFileDelete = "https://test.sqlverine.org/php/delete_file.php";
+  const urlCreateUpdateCode = "https://test.sqlverine.org/php/create_code.php";
 
   async function handleRemove(name) {
+    setMyValues((oldValues) => ({ ...oldValues, loader: true }));
     setShow(false);
     axios
-      .post(urlFileUpload, {
-        fileToDelete: name,
+      .post(urlFileDelete, {
+        db_name: name,
         database_folder: myValues.database_folder,
+      })
+      .then(function (response) {
+        props.getDatabases();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  async function handleChangeCode(event) {
+    setMyValues((oldValues) => ({ ...oldValues, loader: true }));
+    const newCode = event.target.value;
+    axios
+      .post(urlCreateUpdateCode, {
+        code: newCode,
+        db_name: props.name,
       })
       .then(function (response) {
         props.getDatabases();
@@ -36,10 +54,16 @@ export default function DatabaseItem(props) {
       >
         {props.name}
         <span>
-          <select class="form-select" aria-label="Default select example">
-            <option >Codes</option>
+          <select
+            class="form-select"
+            aria-label="Code select"
+            onChange={handleChangeCode}
+          >
+            <option>Codes</option>
             {myValues.codes.map((code) => (
-              <option selected={props.code === code} value={code}>{code}</option>
+              <option selected={props.code === code} value={code}>
+                {code}
+              </option>
             ))}
           </select>
         </span>

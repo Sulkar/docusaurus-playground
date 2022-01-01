@@ -48,3 +48,10 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   top : -2px;
   cursor: pointer;
 }
+
+/* Loader Component */
+#myLoader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}

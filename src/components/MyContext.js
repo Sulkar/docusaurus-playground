@@ -10,6 +10,7 @@ function MyContextProvider(props) {
     db_count: 0,
     codes: [],
     loggedin: false,
+    loader: false,
   });
 
   return (
