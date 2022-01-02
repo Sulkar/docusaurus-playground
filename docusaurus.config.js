@@ -131,7 +131,7 @@ const config = {
     }),
   plugins: [
     //'plugin-image-zoom',
-    path.resolve(__dirname, 'plugins', 'AddHeader'),
+    //path.resolve(__dirname, 'plugins', 'AddHeader'),
   ],
   
 };

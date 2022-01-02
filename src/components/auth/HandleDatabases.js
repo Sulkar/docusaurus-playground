@@ -7,7 +7,7 @@ import Loader from "../Loader";
 
 export default function HandleDatabases() {
   const [myValues, setMyValues] = useContext(MyContext);
-  const [databases, setDatabases] = useState([]);
+  const [databases, setDatabases] = useState(["test1", "test2"]);
   const [databasesCodes, setDatabasesCodes] = useState({});
   const urlFileUpload = "https://test.sqlverine.org/php/get_files.php";
 
@@ -42,7 +42,7 @@ export default function HandleDatabases() {
           <div className="mt-3">
             <h3>Datenbanken</h3>
             {myValues.loader ? <Loader /> : <></>}
-            <ul className="list-group">
+            <ul className="verineList">
               {databases.map((database) => (
                 <DatabaseItem
                   name={database}
