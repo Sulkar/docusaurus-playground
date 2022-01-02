@@ -42,7 +42,7 @@ export default function DatabaseUpload(props) {
   }
 
   return (
-    <div class="container">
+    <div className="container">
       <div className="row">
         <h3>Datenbank (.db) hochladen</h3>
       </div>
@@ -57,7 +57,7 @@ export default function DatabaseUpload(props) {
           <div className="">{alert}</div>
         </div>
         <div className="col">
-          <button class="button button--outline button--primary" onClick={handleFileUpload}>
+          <button className="button button--outline button--primary" onClick={handleFileUpload}>
             Upload
           </button>
         </div>

@@ -6,7 +6,7 @@ export default function Logout() {
   const urlLogout = "https://test.sqlverine.org/php/logout.php";
   const [myValues, setMyValues] = useContext(MyContext);
 
-  // Login
+  // Logout
   async function handleLogout(event) {
     axios.get(urlLogout).then((response) => {
       setMyValues((oldValues) => ({ ...oldValues, loggedin: false }));
