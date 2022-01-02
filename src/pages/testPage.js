@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Layout from "@theme/Layout";
 import { MyContext } from "../components/MyContext";
+import Loader from "../components/Loader";
 
 export default function testPage() {
   const [myValues, setMyValues] = useContext(MyContext);
@@ -14,6 +15,10 @@ export default function testPage() {
     <Layout>
       <main>
         <h1>Test Page</h1>
+
+
+      <Loader/>
+
 
         <button onClick={handleShow}>open Modal</button>
         <div

@@ -40,12 +40,13 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   padding-left: 10px;
   border: none;
   border-radius: 2rem;
+  font-size: 18px;
 }
 .inputWithButton span {
   position: absolute;
   color: black;
   right: 40px;
-  top: -2px;
+  top: 2px;
   cursor: pointer;
 }
 
@@ -73,6 +74,34 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* verine Loader */
+.verineLoader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #5f9ea0;
+  border-right: 10px solid #5f9ea0;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 1.5s linear infinite; /* Safari */
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* verine Select */
